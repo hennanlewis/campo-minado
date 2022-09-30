@@ -1,4 +1,6 @@
-import { MouseEvent, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
+import { FaRegStar, FaStar } from "react-icons/fa"
+import { RiRefreshFill } from "react-icons/ri"
 
 import { generateRandomPositionArray } from "../utils/generateRandomPositionArray"
 import { simpleMatrixToMinesMatrix } from "../utils/simpleMatrixToMinesMatrix"
@@ -8,6 +10,7 @@ import { MinesweeperBoard } from "./MinesweeperBoard"
 import { EndGameOptions } from "./EndGameOptions"
 import { EmptyBoard } from "./EmptyBoard"
 import "./styles.css"
+import { StarLevelButton } from "./StarLevelButton"
 
 export const MinesweeperGame = () => {
 	const [flagsTotal, setFlagsTotal] = useState(0)
@@ -121,17 +124,47 @@ export const MinesweeperGame = () => {
 			)}
 
 			<section className="minesweeper_menu">
-				<label>
+				<div className="minesweeper-menu-level">
 					<span>Nível: </span>
-					<select onChange={(event) => setSelectedLevel(event.target.value)}>
-						<option value="easy">Fácil</option>
-						<option value="medium">Intermediário</option>
-						<option value="hard">Difícil</option>
-					</select>
-				</label>
+					<StarLevelButton setSelectedLevel={setSelectedLevel} level="easy">
+						<FaStar />
+					</StarLevelButton>
+					<StarLevelButton setSelectedLevel={setSelectedLevel} level="medium">
+						{selectedLevel != "easy" ? <FaStar /> : <FaRegStar />}
+					</StarLevelButton>
+					<StarLevelButton setSelectedLevel={setSelectedLevel} level="hard">
+						{selectedLevel == "hard" ? <FaStar /> : <FaRegStar />}
+					</StarLevelButton>
+					<button
+						className="ml-2 text-[120%]"
+						onClick={handleRestartGame}
+						title="Reiniciar jogo"
+					>
+						<RiRefreshFill />
+					</button>
+				</div>
 				<div>
 					<span>Locais suspeitos: {flagsTotal}</span>
 				</div>
+			</section>
+			<section className="minesweeper-rules">
+				<h3>Regras:</h3>
+				<ul>
+					<li>Clique nas peças para revelá-las;</li>
+					<li>Cada peça pode ter ou não bombas;</li>
+					<li>Ao revelar peças que possuem bombas, você perde;</li>
+					<li>
+						Ao revelar peças que não possuem bombas, pode ter ou não um número;
+					</li>
+					<li>
+						O número que aparece representa a quantidade de bombas existentes
+						nas peças vizinhas (incluindo as peças nas diagonais);
+					</li>
+					<li>
+						Peças reveladas que não possuem números revelam todas as peças
+						vizinhas (incluindo as peças nas diagonais) automaticamente.
+					</li>
+				</ul>
 			</section>
 		</main>
 	)

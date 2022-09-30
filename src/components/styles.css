@@ -1,5 +1,5 @@
 .minesweeper-board {
-	@apply relative flex flex-col justify-center items-center gap-4 mb-10 
+	@apply relative flex flex-col justify-center items-center gap-4 mb-4
 	p-4;
 }
 
@@ -59,8 +59,10 @@
 .minesIcon-8 { @apply bg-red-700; }
 
 .minesweeper_menu {
-	@apply flex justify-between items-center flex-1 py-2 px-4 gap-2
-	bg-green-900/50 rounded-md max-w-full;
+	@apply flex flex-col sm:flex-row justify-between
+	sm:items-center py-4 px-6 gap-2 bg-green-900/80
+	text-white sm:text-xl md:text-2xl rounded-md
+	max-w-full;
 }
 
 .minesweeper-easy ~ .minesweeper_menu {
@@ -103,4 +105,21 @@ button.minesweeper-endgame-lose {
 
 .minesweeper-endgame svg {
 	@apply fill-white;
+}
+
+.minesweeper-menu-level {
+	@apply flex gap-1 items-center bg-transparent;
+}
+
+.minesweeper-rules {
+	@apply px-6 py-4 gap-2 bg-orange-900/80 text-white
+	rounded-md max-w-full;
+}
+
+.minesweeper-rules h3 {
+	@apply font-bold text-xl;
+}
+
+.minesweeper-rules ul {
+	@apply list-inside list-disc;
 }

@@ -61,8 +61,7 @@
 .minesweeper_menu {
 	@apply flex flex-col sm:flex-row justify-between
 	sm:items-center py-4 px-6 gap-2 bg-green-900/80
-	text-white sm:text-xl md:text-2xl rounded-md
-	max-w-full;
+	text-white sm:text-xl rounded-md max-w-full;
 }
 
 .minesweeper-easy ~ .minesweeper_menu {

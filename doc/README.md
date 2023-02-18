@@ -2,10 +2,10 @@
 
 Este é um projeto do jogo bastante conhecido como campo minado (minesweeper).
 
-![Screenshot](doc/Screenshot_1.jpg)
-![Screenshot](doc/Screenshot_2.jpg)
-![Screenshot](doc/Screenshot_3.jpg)
-![Screenshot](doc/Screenshot_4.jpg)
+![Screenshot](Screenshot_1.jpg)
+![Screenshot](Screenshot_2.jpg)
+![Screenshot](Screenshot_3.jpg)
+![Screenshot](Screenshot_4.jpg)
 
 ## Como funciona esse "campo minado"?
 
